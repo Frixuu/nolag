@@ -1,0 +1,5 @@
+main: xyz.lukasz.nolag.NoLagPlugin
+name: NoLag
+version: "0.1"
+author: Frixuu
+api-version: "1.14"

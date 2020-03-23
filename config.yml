@@ -3,3 +3,5 @@ blockvehicles: true
 blockdispensers: true
 blockhoppers: true
 blockbooks: true
+blockfireworks: true
+blocksplashpotions: true

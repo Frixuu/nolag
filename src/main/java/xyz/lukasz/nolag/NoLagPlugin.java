@@ -5,8 +5,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import xyz.lukasz.nolag.listeners.BookEditListener;
 import xyz.lukasz.nolag.listeners.DispenseListener;
+import xyz.lukasz.nolag.listeners.FireworkListener;
 import xyz.lukasz.nolag.listeners.HopperListener;
 import xyz.lukasz.nolag.listeners.RedstoneChangeListener;
+import xyz.lukasz.nolag.listeners.SplashPotionListener;
 import xyz.lukasz.nolag.listeners.VehicleSpawnListener;
 
 public class NoLagPlugin extends JavaPlugin {
@@ -16,6 +18,8 @@ public class NoLagPlugin extends JavaPlugin {
     public boolean blockDispensers;
     public boolean blockHoppers;
     public boolean blockBooks;
+    public boolean blockFireworks;
+    public boolean blockSplashPotions;
 
     @Override
     public void onEnable() {
@@ -34,6 +38,8 @@ public class NoLagPlugin extends JavaPlugin {
         blockDispensers = this.getConfig().getBoolean("blockdispensers");
         blockHoppers = this.getConfig().getBoolean("blockhoppers");
         blockBooks = this.getConfig().getBoolean("blockbooks");
+        blockFireworks = this.getConfig().getBoolean("blockfireworks", true);
+        blockSplashPotions = this.getConfig().getBoolean("blocksplashpotions", true);
     }
 
     private void registerListeners() {
@@ -43,5 +49,7 @@ public class NoLagPlugin extends JavaPlugin {
         if (blockDispensers) pm.registerEvents(new DispenseListener(), this);
         if (blockHoppers) pm.registerEvents(new HopperListener(), this);
         if (blockBooks) pm.registerEvents(new BookEditListener(), this);
+        if (blockFireworks) pm.registerEvents(new FireworkListener(), this);
+        if (blockSplashPotions) pm.registerEvents(new SplashPotionListener(), this);
     }
 }
